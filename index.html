@@ -84,6 +84,14 @@
         .game-info h2 {
             margin-top: 0;
         }
+        .mobile-message {
+            background-color: #ffcc00;
+            color: black;
+            padding: 10px;
+            text-align: center;
+            font-size: 18px;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -91,6 +99,10 @@
     <div class="header">
         <button class="back-button" onclick="window.location.href='https://www.pancakeengineer.xyz'">Go back to PancakeEngineer.xyz</button>
         <h1>Pancake Engineer Store</h1>
+    </div>
+
+    <div class="mobile-message" id="mobileMessage">
+        <p>Please switch to a PC for a better shopping experience!</p>
     </div>
 
     <div class="menu">
@@ -121,6 +133,11 @@
             document.getElementById('gameDescription').innerText = description;
             document.getElementById('gameImage').src = imageUrl;
             document.getElementById('gameInfo').style.display = 'block';
+        }
+
+        // Check if the user is on a mobile device
+        if (window.innerWidth <= 800 || /Mobi|Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent)) {
+            document.getElementById('mobileMessage').style.display = 'block';
         }
     </script>
 
