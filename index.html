@@ -92,6 +92,9 @@
             font-size: 18px;
             display: none;
         }
+        .mobile-hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -105,7 +108,7 @@
         <p>Please switch to a PC for a better shopping experience!</p>
     </div>
 
-    <div class="menu">
+    <div class="menu" id="menuBar">
         <button onclick="loadGame('test_purchase/fkDAITiL4q', 'Test Game', 'This is a sample game description.', 'https://via.placeholder.com/400')">Test Game</button>
         <!-- Add more games here -->
     </div>
@@ -138,6 +141,7 @@
         // Check if the user is on a mobile device
         if (window.innerWidth <= 800 || /Mobi|Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent)) {
             document.getElementById('mobileMessage').style.display = 'block';
+            document.getElementById('menuBar').classList.add('mobile-hidden'); // Hide menu bar on mobile
         }
     </script>
 
