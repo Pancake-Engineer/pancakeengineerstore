@@ -38,15 +38,36 @@
         .menu button:hover {
             background-color: #666;
         }
+        .content-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin-top: 20px;
+            gap: 20px;
+        }
         .game-container {
             text-align: center;
-            margin-top: 20px;
         }
         iframe {
             width: 526px;
             height: 263px;
             border: none;
             display: none;
+        }
+        .game-info {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            width: 400px;
+            display: none;
+            border-radius: 10px;
+        }
+        .game-info img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        .game-info h2 {
+            margin-top: 0;
         }
     </style>
 </head>
@@ -57,19 +78,33 @@
     </div>
 
     <div class="menu">
-        <button onclick="loadGame('test_purchase/fkDAITiL4q')">Test Game</button>
+        <button onclick="loadGame('test_purchase/fkDAITiL4q', 'Test Game', 'This is a sample game description.', 'https://via.placeholder.com/400')">Test Game</button>
         <!-- Add more games here -->
     </div>
 
-    <div class="game-container">
-        <iframe id="gameEmbed" scrolling="no" frameborder="0"></iframe>
+    <div class="content-container">
+        <div class="game-container">
+            <iframe id="gameEmbed" scrolling="no" frameborder="0"></iframe>
+        </div>
+        <div class="game-info" id="gameInfo">
+            <h2 id="gameTitle"></h2>
+            <img id="gameImage" src="" alt="Game Image">
+            <p id="gameDescription"></p>
+        </div>
     </div>
 
     <script>
-        function loadGame(gameId) {
+        function loadGame(gameId, title, description, imageUrl) {
+            // Update and show the Humble Bundle iframe
             const iframe = document.getElementById('gameEmbed');
             iframe.src = `https://www.humblebundle.com/widget/v2/product/${gameId}?theme=light`;
-            iframe.style.display = 'block'; // Show the iframe when a game is selected
+            iframe.style.display = 'block'; 
+
+            // Update and show the game information
+            document.getElementById('gameTitle').innerText = title;
+            document.getElementById('gameDescription').innerText = description;
+            document.getElementById('gameImage').src = imageUrl;
+            document.getElementById('gameInfo').style.display = 'block';
         }
     </script>
 
