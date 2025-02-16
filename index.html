@@ -20,6 +20,21 @@
             background-color: red;
             width: 100%;
             text-align: center;
+            position: relative;
+        }
+        .back-button {
+            position: absolute;
+            left: 10px;
+            top: 20px;
+            background-color: #444;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .back-button:hover {
+            background-color: #666;
         }
         .menu {
             background-color: #222;
@@ -74,6 +89,7 @@
 <body>
 
     <div class="header">
+        <button class="back-button" onclick="window.location.href='https://www.pancakeengineer.xyz'">Go back to PancakeEngineer.xyz</button>
         <h1>Pancake Engineer Store</h1>
     </div>
 
