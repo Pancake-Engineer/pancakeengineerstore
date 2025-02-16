@@ -9,6 +9,7 @@
         body {
             background-color: gray;
             margin: 0;
+            font-family: Arial, sans-serif;
         }
         h1 {
             color: white;
@@ -20,11 +21,57 @@
             width: 100%;
             text-align: center;
         }
+        .menu {
+            background-color: #222;
+            padding: 10px;
+            text-align: center;
+        }
+        .menu button {
+            background-color: #444;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .menu button:hover {
+            background-color: #666;
+        }
+        .game-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        iframe {
+            width: 526px;
+            height: 263px;
+            border: none;
+            display: none;
+        }
     </style>
 </head>
 <body>
+
     <div class="header">
         <h1>Pancake Engineer Store</h1>
     </div>
+
+    <div class="menu">
+        <button onclick="loadGame('test_purchase/fkDAITiL4q')">Test Game</button>
+        <!-- Add more games here -->
+    </div>
+
+    <div class="game-container">
+        <iframe id="gameEmbed" scrolling="no" frameborder="0"></iframe>
+    </div>
+
+    <script>
+        function loadGame(gameId) {
+            const iframe = document.getElementById('gameEmbed');
+            iframe.src = `https://www.humblebundle.com/widget/v2/product/${gameId}?theme=light`;
+            iframe.style.display = 'block'; // Show the iframe when a game is selected
+        }
+    </script>
+
 </body>
 </html>
